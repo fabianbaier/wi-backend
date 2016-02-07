@@ -1,11 +1,11 @@
 {
-  "name": "Webinterface Backend",
+  "name": "node-api",
   "version": "1.0.0",
   "description": "Node.js and MongoDb.",
-  "main": "Server.js",
+  "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.13.3",
-    "express": "^4.13.3",
-    "mongoose": "^4.1.2"
+    "body-parser": "~1.13.3",
+    "express": "~4.13.3",
+    "mongoose": "~4.1.2"
   }
 }
