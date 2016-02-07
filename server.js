@@ -57,6 +57,16 @@ router.route("/containers")
     res.json({"error" : false,"message" : "Containerized"});
 });
 
+router.route("/container")
+    .get(function(req,res){
+        const spawn = require('child_process').spawn;
+        const ls = spawn('ls', ['-lh', '/usr']);
+
+        ls.stdout.on('data', (data) => {
+        res.json(`stdout: ${data}`);
+    });
+});
+
 app.use('/',router);
 
 app.listen(3000);
