@@ -17,8 +17,17 @@ router.get("/",function(req,res){
 
 router.route("/users")
     .get(function(req,res){
-        ------------------------------------------------------
-    })
+        var response = {};
+        mongoOp.find({},function(err,data){
+        // Mongo command to fetch all data from collection.
+            if(err) {
+                response = {"error" : true,"message" : "Error fetching data"};
+            } else {
+                response = {"error" : false,"message" : data};
+            }
+            res.json(response);
+        });
+    });
 
     .post(function(req,res){
         var db = new mongoOp();
