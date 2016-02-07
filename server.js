@@ -27,7 +27,7 @@ router.route("/users")
             }
             res.json(response);
         });
-    });
+    })
 
     .post(function(req,res){
         var db = new mongoOp();
