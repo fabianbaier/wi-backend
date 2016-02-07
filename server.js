@@ -64,6 +64,7 @@ router.route("/container")
 
         ls.stdout.on('data', (data) => {
         res.json(`stdout: ${data}`);
+    })
 });
 
 app.use('/',router);
