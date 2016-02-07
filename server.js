@@ -16,7 +16,9 @@ router.get("/",function(req,res){
 //Then use route() to remove redundant code.
 
 router.route("/users")
-    .get(function(req,res))
+    .get(function(req,res){
+        ------------------------------------------------------
+    })
 
     .post(function(req,res){
         var db = new mongoOp();
