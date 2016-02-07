@@ -18,7 +18,7 @@ router.get("/",function(req,res){
 router.route("/users")
     .get(function(req,res){
         ------------------------------------------------------
-    })
+    });
     .post(function(req,res){
         var db = new mongoOp();
         var response = {};
