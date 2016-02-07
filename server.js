@@ -52,6 +52,12 @@ router.route("/users")
         });
     });
 
+router.route("/containers")
+    .get(function(req,res){
+            res.json({"error" : false,"message" : "Containers of Docker"});
+        });
+    });
+
 app.use('/',router);
 
 app.listen(3000);
