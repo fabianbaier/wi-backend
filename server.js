@@ -61,8 +61,8 @@ router.route("/container")
     .get(function(req,res){
     var exec = require('child_process').exec;
     exec("uptime", function(error, stdout, stderr) {
-        res.json('Running containers: ' + stdout);
-        res.json('stderr: ' + stderr);
+        return res.json('Running containers: ' + stdout);
+        return res.json('stderr: ' + stderr);
         if (error !== null) {
             console.log('exec error: ' + error);
         }
