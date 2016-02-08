@@ -61,7 +61,7 @@ router.route("/container")
     .get(function(req,res){
     var exec = require('child_process').exec;
     exec("docker ps | awk '{print $1}' | sed 1d", function(error, stdout, stderr) {
-        return res.json({"Containers" : } + stdout);
+        return res.json(JSON.stringify(stdout));
         return res.json('stderr: ' + stderr);
         if (error !== null) {
             console.log('exec error: ' + error);
