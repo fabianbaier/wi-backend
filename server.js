@@ -59,12 +59,14 @@ router.route("/containers")
 
 router.route("/container")
     .get(function(req,res){
-        const spawn = require('child_process').spawn;
-        const ls = spawn('ls', ['-lh', '/usr']);
-
-        ls.stdout.on('data', (data) => {
-        res.json(`stdout: ${data}`);
-    })
+    var exec = require('child_process').exec;
+    exec('node -v', function(error, stdout, stderr) {
+        res.json('stdout: ' + stdout);
+        res.json('stderr: ' + stderr);
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+});
 });
 
 app.use('/',router);
