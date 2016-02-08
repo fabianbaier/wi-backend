@@ -60,7 +60,7 @@ router.route("/containers")
 router.route("/container")
     .get(function(req,res){
     var exec = require('child_process').exec;
-    exec("uptime", function(error, stdout, stderr) {
+    exec("docker ps | awk '{print $1}'", function(error, stdout, stderr) {
         return res.json('Running containers: ' + stdout);
         return res.json('stderr: ' + stderr);
         if (error !== null) {
