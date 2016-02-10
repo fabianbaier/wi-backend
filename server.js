@@ -57,10 +57,10 @@ router.route("/containers")
     res.json({"error" : false,"message" : "Containerized"});
 });
 
-router.route("/container")
+router.route("/container/:id")
     .get(function(req,res){
     var exec = require('child_process').exec;
-    exec("docker ps | awk '{print $1}' | sed 1d", function(error, stdout, stderr) {
+    exec("docker ps | awk '{print $1}' | sed " + req.params.id + "d", function(error, stdout, stderr) {
         return res.json(JSON.stringify(stdout));
         return res.json('stderr: ' + stderr);
         if (error !== null) {
